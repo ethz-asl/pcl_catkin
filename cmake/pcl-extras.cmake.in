@@ -11,3 +11,7 @@ set(@PROJECT_NAME@_INCLUDE_DIRS @CATKIN_DEVEL_PREFIX@/include/pcl/)
 macro(pcl_catkin_enforce)
 	include_directories(BEFORE ${@PROJECT_NAME@_INCLUDE_DIRS})
 endmacro()
+
+# This overrides the dependency tracker with the opencv library file.
+file(GLOB pclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_*)
+set( @PROJECT_NAME@_LIBRARIES ${pclLibraries})
