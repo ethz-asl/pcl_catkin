@@ -7,7 +7,7 @@ catkin_simple()
 
 include(ExternalProject)
 
-set(PCL_CATKIN_INCLUDE ${CATKIN_DEVEL_PREFIX}/include/pcl)
+set(PCL_CATKIN_INCLUDE ${CATKIN_DEVEL_PREFIX}/include/pcl-1.8)
 file(MAKE_DIRECTORY ${PCL_CATKIN_INCLUDE})
 
 ExternalProject_Add(pcl_src
