@@ -1,4 +1,4 @@
-set(@PROJECT_NAME@_INCLUDE_DIRS @CATKIN_DEVEL_PREFIX@/include/pcl/)
+#set(@PROJECT_NAME@_INCLUDE_DIRS @PCL_CATKIN_INCLUDE@)
 
 # The following pcl_catkin_enforce macro can be called in a depending
 # project's CMakeLists.txt file (Below findpackage pcl_catkin or the

@@ -7,7 +7,8 @@ catkin_simple()
 
 include(ExternalProject)
 
-file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include/pcl)
+set(PCL_CATKIN_INCLUDE ${CATKIN_DEVEL_PREFIX}/include/pcl)
+file(MAKE_DIRECTORY ${PCL_CATKIN_INCLUDE})
 
 ExternalProject_Add(pcl_src
   GIT_REPOSITORY  https://github.com/PointCloudLibrary/pcl
@@ -20,12 +21,12 @@ cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)
 add_dependencies(${PROJECT_NAME} pcl_src)
 
 cs_install()
-install(DIRECTORY ${CATKIN_DEVEL_PREFIX}/include/pcl
+install(DIRECTORY ${PCL_CATKIN_INCLUDE}
   DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
   FILES_MATCHING PATTERN "*.hpp"
   PATTERN "*.h"
   PATTERN ".svn" EXCLUDE
 )
 
-cs_export(INCLUDE_DIRS ${CATKIN_DEVEL_PREFIX}/include/pcl/
+cs_export(INCLUDE_DIRS ${PCL_CATKIN_INCLUDE}
 CFG_EXTRAS pcl-extras.cmake)
