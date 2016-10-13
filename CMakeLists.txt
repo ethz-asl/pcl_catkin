@@ -35,5 +35,4 @@ install(DIRECTORY ${PCL_CATKIN_INCLUDE}
   PATTERN ".svn" EXCLUDE
 )
 
-cs_export(INCLUDE_DIRS ${PCL_CATKIN_INCLUDE}
-CFG_EXTRAS pcl-extras.cmake)
+cs_export(CFG_EXTRAS pcl-extras.cmake)

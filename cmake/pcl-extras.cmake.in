@@ -1,17 +1,6 @@
-#set(@PROJECT_NAME@_INCLUDE_DIRS @PCL_CATKIN_INCLUDE@)
-
-# The following pcl_catkin_enforce macro can be called in a depending
-# project's CMakeLists.txt file (Below findpackage pcl_catkin or the
-# catkin_simple() call.
-# It will ensure that pcl_catkin's lib PCL will be included instead
-# of any other possible candidate (like a system installation of PCL).
-#
-# It is possible to get that right by careful treatment of workspace layer
-# order but calling this macro is easier.
-macro(pcl_catkin_enforce)
-	include_directories(BEFORE ${@PROJECT_NAME@_INCLUDE_DIRS})
-endmacro()
+find_package(PCL 1.8 REQUIRED)
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
 
 # This overrides the dependency tracker with the opencv library file.
-file(GLOB pclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_*)
-set( @PROJECT_NAME@_LIBRARIES ${pclLibraries})
+set(@PROJECT_NAME@_LIBRARIES ${PCL_LIBRARIES})
