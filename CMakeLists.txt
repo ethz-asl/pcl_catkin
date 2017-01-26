@@ -17,7 +17,7 @@ string(TOUPPER ${CMAKE_BUILD_TYPE} UC_BUILD_TYPE)
 
 ExternalProject_Add(pcl_src
   GIT_REPOSITORY  https://github.com/ethz-asl/pcl
-  GIT_TAG fix/iss_memory_leak
+  GIT_TAG pcl_1.8.0_devel
   UPDATE_COMMAND ""
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
              -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
