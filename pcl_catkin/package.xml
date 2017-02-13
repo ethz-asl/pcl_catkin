@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>pcl_catkin</name>
   <version>1.8.0</version>
   <description>A catkin wrapper of the Point Cloud Library (PCL).</description>
@@ -9,4 +9,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <depend>vtk</depend>
 </package>
