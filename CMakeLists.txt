@@ -18,9 +18,12 @@ string(TOUPPER ${CMAKE_BUILD_TYPE} UC_BUILD_TYPE)
 # PCL uses -march=native which can be dangerous to use together with Eigen 3.3
 # as this can introduce different vectorization settings in different parts
 # of the code. So we manually set the compiler flags here to avoid this issue.
-# Some flags that PCL defines per default.
-SET(PCL_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion -msse4.2 -mfpmath=sse -Wabi -pthread")
-SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++11 -mssse3")
+include("${CMAKE_SOURCE_DIR}/cmake/pcl_find_sse.cmake")
+PCL_CHECK_FOR_SSE()
+
+# Flags that PCL defines by default, see https://github.com/PointCloudLibrary/pcl/blob/master/CMakeLists.txt#L112
+SET(PCL_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion ${SSE_FLAGS} -Wabi")
+SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++11")
 
 ExternalProject_Add(pcl_src
   GIT_REPOSITORY  https://github.com/ethz-asl/pcl
