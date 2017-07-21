@@ -19,6 +19,7 @@ string(TOUPPER ${CMAKE_BUILD_TYPE} UC_BUILD_TYPE)
 # as this can introduce different vectorization settings in different parts
 # of the code. So we manually set the compiler flags here to avoid this issue.
 include("${CMAKE_SOURCE_DIR}/cmake/pcl_find_sse.cmake")
+message("${CMAKE_SOURCE_DIR}/cmake/pcl_find_sse.cmake")
 PCL_CHECK_FOR_SSE()
 
 # Flags that PCL defines by default, see https://github.com/PointCloudLibrary/pcl/blob/master/CMakeLists.txt#L112
