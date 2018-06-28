@@ -3,7 +3,7 @@ project(pcl_catkin)
 
 find_package(catkin_simple REQUIRED)
 
-catkin_simple()
+catkin_simple(ALL_DEPS_REQUIRED)
 
 include(ExternalProject)
 

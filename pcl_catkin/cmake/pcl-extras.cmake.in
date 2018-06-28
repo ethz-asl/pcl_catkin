@@ -1,6 +1,8 @@
-find_package(PCL 1.8 REQUIRED)
-include_directories(${PCL_INCLUDE_DIRS})
-link_directories(${PCL_LIBRARY_DIRS})
+# This overrides the PCL libraries with pcl_catkin libraries. Also adds VTK libs as pcl needs them.
+file(GLOB PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl*)
+set(PCL_LIBRARIES ${PclLibraries};@VTK_LIBRARY_DIRS@)
+set(@PROJECT_NAME@_LIBRARIES ${PclLibraries};@VTK_LIBRARY_DIRS@)
 
-# This overrides the dependency tracker with the opencv library file.
-set(@PROJECT_NAME@_LIBRARIES ${PCL_LIBRARIES})
+# Same thing for include dirs.
+set(PCL_INCLUDE_DIRS @CATKIN_DEVEL_PREFIX@/include/pcl-1.8;@VTK_INCLUDE_DIRS@)
+set(@PROJECT_NAME@_INCLUDE_DIRS @CATKIN_DEVEL_PREFIX@/include/pcl-1.8;@VTK_INCLUDE_DIRS@)
