@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(pcl_catkin)
 
 find_package(catkin_simple REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system filesystem thread)
 
 catkin_simple(ALL_DEPS_REQUIRED)
 
