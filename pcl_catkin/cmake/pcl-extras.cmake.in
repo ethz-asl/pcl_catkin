@@ -3,6 +3,7 @@ include (${VTK_USE_FILE})
 
 # This overrides the PCL libraries with pcl_catkin libraries. Also adds VTK libs as pcl needs them.
 file(GLOB PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl*)
+list(FILTER PclLibraries EXCLUDE REGEX ".*libpcl_ros.*")
 set(PCL_LIBRARIES ${PclLibraries};${VTK_LIBRARIES};@Boost_LIBRARIES@)
 set(@PROJECT_NAME@_LIBRARIES ${PclLibraries};${VTK_LIBRARIES};@Boost_LIBRARIES@)
 
