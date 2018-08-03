@@ -13,12 +13,12 @@ include (${VTK_USE_FILE})
 # This overrides the PCL libraries with pcl_catkin libraries. Also adds VTK libs as pcl needs them.
 file(GLOB PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl*)
 # These lines make sure that we don't export pcl_ros libraries.
-list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_features.dylib)
-list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_filters.dylib)
-list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_io.dylib)
-list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_segmentation.dylib)
-list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_surface.dylib)
-list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_tf.dylib)
+list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_features${CMAKE_SHARED_LIBRARY_SUFFIX})
+list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_filters${CMAKE_SHARED_LIBRARY_SUFFIX})
+list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_io${CMAKE_SHARED_LIBRARY_SUFFIX})
+list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_segmentation${CMAKE_SHARED_LIBRARY_SUFFIX})
+list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_surface${CMAKE_SHARED_LIBRARY_SUFFIX})
+list(REMOVE_ITEM PclLibraries @CATKIN_DEVEL_PREFIX@/lib/libpcl_ros_tf${CMAKE_SHARED_LIBRARY_SUFFIX})
 
 set(PCL_LIBRARIES ${PclLibraries};${VTK_LIBRARIES};@Boost_LIBRARIES@)
 set(@PROJECT_NAME@_LIBRARIES ${PclLibraries};${VTK_LIBRARIES};@Boost_LIBRARIES@)
