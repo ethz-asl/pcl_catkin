@@ -1,4 +1,13 @@
-find_package(VTK 6 REQUIRED COMPONENTS vtkRenderingOpenGL vtkInteractionStyle vtkRenderingVolumeOpenGL vtkCommonCore vtkRenderingCore NO_MODULE)
+find_package(VTK 6 QUIET COMPONENTS vtkRenderingOpenGL vtkInteractionStyle vtkRenderingVolumeOpenGL vtkCommonCore vtkRenderingCore NO_MODULE)
+if (NOT VTK_FOUND)
+  find_package(VTK 7 QUIET COMPONENTS vtkRenderingOpenGL vtkInteractionStyle vtkRenderingVolumeOpenGL vtkCommonCore vtkRenderingCore NO_MODULE)
+endif()
+if (NOT VTK_FOUND)
+  find_package(VTK 8 QUIET COMPONENTS vtkInteractionStyle vtkCommonCore vtkRenderingCore NO_MODULE)
+endif()
+if (NOT VTK_FOUND)
+  find_package(VTK 9 REQUIRED COMPONENTS vtkInteractionStyle vtkCommonCore vtkRenderingCore NO_MODULE)
+endif()
 include (${VTK_USE_FILE})
 
 # This overrides the PCL libraries with pcl_catkin libraries. Also adds VTK libs as pcl needs them.
