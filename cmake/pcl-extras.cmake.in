@@ -1,6 +1,0 @@
-find_package(PCL 1.8 REQUIRED)
-include_directories(${PCL_INCLUDE_DIRS})
-link_directories(${PCL_LIBRARY_DIRS})
-
-# This overrides the dependency tracker with the opencv library file.
-set(@PROJECT_NAME@_LIBRARIES ${PCL_LIBRARIES})

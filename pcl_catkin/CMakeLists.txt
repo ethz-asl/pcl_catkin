@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 2.8.3)
 project(pcl_catkin)
 
 find_package(catkin_simple REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system filesystem thread)
 
-catkin_simple()
+catkin_simple(ALL_DEPS_REQUIRED)
 
 include(ExternalProject)
 
@@ -22,7 +23,7 @@ include("${CMAKE_SOURCE_DIR}/cmake/pcl_find_sse.cmake")
 PCL_CHECK_FOR_SSE()
 
 # Flags that PCL defines by default, see https://github.com/PointCloudLibrary/pcl/blob/master/CMakeLists.txt#L112
-SET(PCL_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion ${SSE_FLAGS} -Wabi")
+SET(PCL_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion -DBOOST_UUID_RANDOM_GENERATOR_COMPAT ${SSE_FLAGS} -Wabi")
 SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++11")
 
 ExternalProject_Add(pcl_src
