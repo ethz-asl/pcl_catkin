@@ -19,12 +19,12 @@ string(TOUPPER ${CMAKE_BUILD_TYPE} UC_BUILD_TYPE)
 # PCL uses -march=native which can be dangerous to use together with Eigen 3.3
 # as this can introduce different vectorization settings in different parts
 # of the code. So we manually set the compiler flags here to avoid this issue.
-include("${CMAKE_SOURCE_DIR}/cmake/pcl_find_sse.cmake")
+include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/pcl_find_sse.cmake")
 PCL_CHECK_FOR_SSE()
 
 # Flags that PCL defines by default, see https://github.com/PointCloudLibrary/pcl/blob/master/CMakeLists.txt#L112
 SET(PCL_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion -DBOOST_UUID_RANDOM_GENERATOR_COMPAT ${SSE_FLAGS} -Wabi")
-SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++11")
+SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++14")
 
 ExternalProject_Add(pcl_src
   GIT_REPOSITORY  https://github.com/PointCloudLibrary/pcl
@@ -42,14 +42,8 @@ add_dependencies(${PROJECT_NAME} pcl_src)
 
 install(DIRECTORY ${CATKIN_DEVEL_PREFIX}/lib/
         DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-      FILES_MATCHING PATTERN "libpcl*")
+      FILES_MATCHING PATTERN "libpcl*${CMAKE_SHARED_LIBRARY_SUFFIX}")
 
-# cs_install()
-install(DIRECTORY ${PCL_CATKIN_INCLUDE}
-  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.hpp"
-  PATTERN "*.h"
-  PATTERN ".svn" EXCLUDE
-)
+cs_install()
 
 cs_export(CFG_EXTRAS pcl-extras.cmake)
