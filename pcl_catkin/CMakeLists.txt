@@ -40,10 +40,6 @@ ExternalProject_Add(pcl_src
 cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)
 add_dependencies(${PROJECT_NAME} pcl_src)
 
-install(DIRECTORY ${CATKIN_DEVEL_PREFIX}/lib/
-        DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-      FILES_MATCHING PATTERN "libpcl*${CMAKE_SHARED_LIBRARY_SUFFIX}")
-
 cs_install()
 
 cs_export(CFG_EXTRAS pcl-extras.cmake)
