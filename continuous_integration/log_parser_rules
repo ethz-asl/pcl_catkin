@@ -40,7 +40,7 @@ ok /\[FAILURE\]/ # We parse test errors separately.
 error /Segmentation fault/
 
 # Build output:
-error /[Ee]rror: /
+error /[Ee]rror: [^\s]/
 error /ld: cannot find/
 error /Error [0-9]/
 #error /\[FAIL\]/
