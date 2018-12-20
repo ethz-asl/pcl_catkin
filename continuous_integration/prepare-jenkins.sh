@@ -1,3 +1,5 @@
+catkin config --cmake-args -DCATKIN_ENABLE_TESTING=ON
+
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
   echo "**** Installing additional necessary packages. ****"
