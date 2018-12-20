@@ -1,4 +1,4 @@
-catkin config --cmake-args -DCATKIN_ENABLE_TESTING=ON
+catkin config --cmake-args -DCATKIN_ENABLE_TESTING=ON -DCMAKE_CXX_FLAGS=-std=c++14
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
