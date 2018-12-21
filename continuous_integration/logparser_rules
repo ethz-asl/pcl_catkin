@@ -29,12 +29,13 @@ error /^CMake\u0020Error/
 # CMake warnings:
 warning /^CMake\u0020Warning/
 
+# Linker dynamic library not found
+error error while loading shared libraries:
+
 # Tests:
 #start /FAILURES:/
 ok /test/
 ok /\[FAILURE\]/ # We parse test errors separately.
-
-
 
 # Test segmentation fault:
 error /Segmentation fault/
