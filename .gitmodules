@@ -3,4 +3,4 @@
 	url = https://github.com/ethz-asl/perception_pcl.git
 [submodule "geometry2"]
 	path = geometry2
-	url = https://github.com/ros/geometry2.git
+	url = https://github.com/ethz-asl/geometry2.git
