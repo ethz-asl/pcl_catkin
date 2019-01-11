@@ -30,7 +30,7 @@ error /^CMake\u0020Error/
 warning /^CMake\u0020Warning/
 
 # Linker dynamic library not found
-error error while loading shared libraries:
+error /error while loading shared libraries:/
 
 # Tests:
 #start /FAILURES:/
