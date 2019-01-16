@@ -8,3 +8,8 @@ git submodule update --init --recursive
 ```
 
 such that you have them matching this PCL version.
+
+## Install dependency
+```
+sudo apt install libbullet-dev
+```
