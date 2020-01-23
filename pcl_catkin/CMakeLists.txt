@@ -8,7 +8,7 @@ catkin_simple(ALL_DEPS_REQUIRED)
 
 include(ExternalProject)
 
-set(PCL_CATKIN_INCLUDE ${CATKIN_DEVEL_PREFIX}/include/pcl-1.9)
+set(PCL_CATKIN_INCLUDE ${CATKIN_DEVEL_PREFIX}/include/pcl-1.10)
 file(MAKE_DIRECTORY ${PCL_CATKIN_INCLUDE})
 
 if(NOT CMAKE_BUILD_TYPE)
