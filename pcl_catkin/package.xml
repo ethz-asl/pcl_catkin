@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>pcl_catkin</name>
-  <version>1.9.1</version>
+  <version>1.10.1</version>
   <description>A catkin wrapper of the Point Cloud Library (PCL).</description>
   <maintainer email="fadri.furrer@mavt.ethz.ch">Fadri Furrer</maintainer>
   <author>Fadri Furrer</author>
