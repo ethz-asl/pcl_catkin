@@ -28,7 +28,7 @@ SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++14")
 
 ExternalProject_Add(pcl_src
   GIT_REPOSITORY  https://github.com/PointCloudLibrary/pcl
-  GIT_TAG master
+  GIT_TAG pcl-1.10.1
   UPDATE_COMMAND ""
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
              -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
