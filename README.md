@@ -1,5 +1,5 @@
 # pcl_catkin
-Catkinized version of the latest version (1.9.1) of the Point Cloud Library (PCL) (http://pointclouds.org/).
+Catkinized version of the latest version (1.10) of the Point Cloud Library (PCL) (http://pointclouds.org/).
 
 To get (and build) the ROS packages that depend on PCL you should also use
 
